@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Hospital - Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary": "#137fec", "background-dark": "#05080a", "card-dark": "#111a22", "input-dark": "#192633", "border-dark": "#233648" }, fontFamily: { "display": ["Inter", "sans-serif"] } } } }
+    </script>
+    <style>dialog::backdrop { background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px); }</style>
+</head>
+<body class="bg-background-dark text-white font-display flex flex-col min-h-screen">
+
+    <header class="flex items-center justify-between px-6 py-4 border-b border-border-dark bg-card-dark/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="flex items-center gap-4">
+            <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary/20 text-primary">
+                <span class="material-symbols-outlined">local_hospital</span>
+            </div>
+            <h2 class="text-xl font-bold">Government Hospital</h2>
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+            <a href="home.html" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">Home</a>
+            <a href="index.html" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">Appointments</a>
+            <a href="contact.html" class="text-white text-sm font-medium border-b-2 border-primary pb-0.5">Contact</a>
+            
+            <button id="auth-btn" onclick="openAuthModal()" class="bg-input-dark border border-border-dark hover:border-gray-500 px-4 py-2 rounded-lg text-sm font-medium transition-all text-gray-300 hover:text-white">
+                Login / Register
+            </button>
+
+            <a href="index.html" class="bg-primary hover:bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-blue-900/20">
+                Book Now
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-5xl mx-auto w-full px-6 py-12">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-black mb-4">Get in Touch</h1>
+            <p class="text-gray-400 text-lg">We are here to help you 24/7. Reach out to us for any queries.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+            <div class="flex flex-col gap-6">
+                <div class="bg-card-dark p-6 rounded-2xl border border-border-dark flex items-start gap-5 hover:border-gray-600 transition-colors">
+                    <div class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-2xl">location_on</span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-white">Hospital Location</h3>
+                        <p class="text-gray-400 text-sm mt-1 leading-relaxed">123 Health Avenue, Egmore,<br>Chennai, Tamil Nadu, 600008</p>
+                    </div>
+                </div>
+                <div class="bg-card-dark p-6 rounded-2xl border border-border-dark flex items-start gap-5 hover:border-gray-600 transition-colors">
+                    <div class="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center text-green-500">
+                        <span class="material-symbols-outlined text-2xl">call</span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-white">Emergency Support</h3>
+                        <p class="text-gray-400 text-sm mt-1 leading-relaxed">+91 44 1234 5678 (General)<br><span class="text-red-400 font-bold">108 (Ambulance)</span></p>
+                    </div>
+                </div>
+                <div class="bg-card-dark p-6 rounded-2xl border border-border-dark flex items-start gap-5 hover:border-gray-600 transition-colors">
+                    <div class="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-500">
+                        <span class="material-symbols-outlined text-2xl">mail</span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-white">Email Us</h3>
+                        <p class="text-gray-400 text-sm mt-1 leading-relaxed">helpdesk@govhospital.com<br>careers@govhospital.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-card-dark p-8 rounded-3xl border border-border-dark shadow-2xl">
+                <form id="contactForm" onsubmit="handleContact(event)" class="flex flex-col gap-5">
+                    <h3 class="text-2xl font-bold mb-2">Send Message</h3>
+                    <div class="flex flex-col gap-2"><label class="text-sm text-gray-400">Your Name</label><input required type="text" placeholder="John Doe" class="bg-input-dark border border-border-dark rounded-lg p-3 text-white focus:border-primary outline-none transition-all"></div>
+                    <div class="flex flex-col gap-2"><label class="text-sm text-gray-400">Your Email</label><input required type="email" placeholder="john@example.com" class="bg-input-dark border border-border-dark rounded-lg p-3 text-white focus:border-primary outline-none transition-all"></div>
+                    <div class="flex flex-col gap-2"><label class="text-sm text-gray-400">Message</label><textarea required rows="4" placeholder="How can we help you?" class="bg-input-dark border border-border-dark rounded-lg p-3 text-white focus:border-primary outline-none transition-all resize-none"></textarea></div>
+                    <button type="submit" id="sendBtn" class="bg-primary hover:bg-blue-600 text-white font-bold py-3.5 rounded-lg transition-all shadow-lg shadow-blue-500/20 mt-2 flex items-center justify-center gap-2"><span>Send Message</span><span class="material-symbols-outlined text-lg">send</span></button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <dialog id="authModal" class="bg-transparent backdrop:bg-black/80 p-0 rounded-2xl shadow-2xl w-full max-w-md">
+        <div class="bg-card-dark border border-border-dark p-6 rounded-2xl relative shadow-2xl">
+            <button onclick="document.getElementById('authModal').close()" class="absolute top-4 right-4 text-gray-400 hover:text-white material-symbols-outlined">close</button>
+            <h2 id="modal-title" class="text-2xl font-bold text-white mb-6">Login</h2>
+            <div class="flex flex-col gap-4">
+                <input type="text" id="auth-username" placeholder="Username or Email" class="w-full bg-input-dark border border-border-dark rounded-lg p-3 text-white focus:border-primary outline-none">
+                <div id="register-fields" class="flex flex-col gap-4 hidden">
+                    <input type="email" id="auth-email" placeholder="Email Address" class="w-full bg-input-dark border border-border-dark rounded-lg p-3 text-white focus:border-primary outline-none">
+                    <input type="tel" id="auth-phone" placeholder="Phone Number" class="w-full bg-input-dark border border-border-dark rounded-lg p-3 text-white focus:border-primary outline-none">
+                </div>
+                <input type="password" id="auth-password" placeholder="Password" class="w-full bg-input-dark border border-border-dark rounded-lg p-3 text-white focus:border-primary outline-none">
+                <button onclick="handleAuth()" class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-3 rounded-lg transition-all shadow-lg shadow-blue-500/20">Submit</button>
+                <p class="text-center text-gray-400 text-sm cursor-pointer hover:text-primary mt-2" onclick="toggleAuthMode()">
+                    <span id="toggle-text">Need an account? Register</span>
+                </p>
+                <p id="auth-msg" class="text-center text-red-500 text-sm mt-2 font-medium"></p>
+            </div>
+        </div>
+    </dialog>
+
+    <footer class="border-t border-border-dark py-8 text-center text-gray-500 text-sm bg-card-dark mt-auto">
+        <p>© 2025 Government Hospital. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        async function handleContact(e) {
+            e.preventDefault();
+            const btn = document.getElementById('sendBtn');
+            const originalText = btn.innerHTML;
+            
+            const name = document.querySelector('input[type="text"]').value;
+            const email = document.querySelector('input[type="email"]').value;
+            const message = document.querySelector('textarea').value;
+
+            // 1. Show Loading
+            btn.disabled = true;
+            btn.innerHTML = `<span class="material-symbols-outlined animate-spin">progress_activity</span> Sending...`;
+            btn.classList.add('opacity-70');
+
+            try {
+                // 2. Send to Backend (Using the new /api/contact route)
+                const response = await fetch('http://localhost:5000/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, message })
+                });
+
+                if (response.ok) {
+                    // 3. Success
+                    btn.innerHTML = `<span class="material-symbols-outlined">check_circle</span> Sent Successfully!`;
+                    btn.classList.remove('bg-primary', 'hover:bg-blue-600');
+                    btn.classList.add('bg-green-600', 'hover:bg-green-700');
+                    document.getElementById('contactForm').reset();
+                } else {
+                    alert("Failed to send message.");
+                }
+            } catch (error) {
+                console.error(error);
+                alert("Server Error. Make sure backend is running.");
+            }
+
+            // 4. Reset Button after 3 seconds
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+                btn.classList.remove('opacity-70', 'bg-green-600', 'hover:bg-green-700');
+                btn.classList.add('bg-primary', 'hover:bg-blue-600');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

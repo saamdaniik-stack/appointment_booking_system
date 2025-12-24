@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Hospital - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary": "#137fec", "background-dark": "#05080a", "card-dark": "#111a22", "input-dark": "#192633", "border-dark": "#233648" }, fontFamily: { "display": ["Inter", "sans-serif"] } } } }
+    </script>
+    <style>dialog::backdrop { background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px); }</style>
+</head>
+<body class="bg-background-dark text-white font-display">
+
+    <header class="flex items-center justify-between px-6 py-4 border-b border-border-dark bg-card-dark/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="flex items-center gap-4">
+            <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary/20 text-primary">
+                <span class="material-symbols-outlined">local_hospital</span>
+            </div>
+            <h2 class="text-xl font-bold">Government Hospital</h2>
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+            <a href="home.html" class="text-white text-sm font-medium border-b-2 border-primary pb-0.5">Home</a>
+            <a href="index.html" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">Appointments</a>
+            <a href="contact.html" class="text-gray-300 hover:text-white text-sm font-medium transition-colors">Contact</a>
+            
+            <button id="auth-btn" onclick="openAuthModal()" class="bg-input-dark border border-border-dark hover:border-gray-500 px-4 py-2 rounded-lg text-sm font-medium transition-all text-gray-300 hover:text-white">
+                Login / Register
+            </button>
+
+            <a href="index.html" class="bg-primary hover:bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-blue-900/20">
+                Book Now
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-2 gap-12 items-center">
+        <div class="flex flex-col gap-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/30 border border-blue-800/50 w-fit">
+                <span class="material-symbols-outlined text-primary text-sm">verified</span>
+                <span class="text-primary text-xs font-bold uppercase tracking-wide">#1 Trusted Healthcare</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black leading-tight">
+                Your Health, <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Our Priority.</span>
+            </h1>
+            <p class="text-gray-400 text-lg leading-relaxed max-w-lg">
+                Experience world-class medical care with our team of expert specialists. Advanced technology, compassionate care, and 24/7 support.
+            </p>
+            <div class="flex gap-4 mt-4">
+                <a href="index.html" class="px-8 py-4 bg-primary hover:bg-blue-600 text-white font-bold rounded-xl shadow-lg shadow-blue-500/20 transition-transform active:scale-95 flex items-center gap-2">
+                    Book Appointment <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+                <a href="contact.html" class="px-8 py-4 bg-card-dark border border-border-dark hover:border-gray-500 text-white font-bold rounded-xl transition-all">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+
+        <div class="relative">
+            <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-purple-500/20 rounded-3xl blur-3xl"></div>
+            <div class="relative bg-card-dark border border-border-dark rounded-3xl p-8 shadow-2xl">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-input-dark p-6 rounded-2xl border border-border-dark flex flex-col items-center text-center gap-3">
+                        <span class="material-symbols-outlined text-4xl text-blue-400">cardiology</span>
+                        <h3 class="font-bold">Heart Care</h3>
+                        <p class="text-xs text-gray-500">Top Cardiologists</p>
+                    </div>
+                    <div class="bg-input-dark p-6 rounded-2xl border border-border-dark flex flex-col items-center text-center gap-3">
+                        <span class="material-symbols-outlined text-4xl text-green-400">pediatrics</span>
+                        <h3 class="font-bold">Pediatrics</h3>
+                        <p class="text-xs text-gray-500">Child Specialists</p>
+                    </div>
+                    <div class="bg-input-dark p-6 rounded-2xl border border-border-dark flex flex-col items-center text-center gap-3">
+                        <span class="material-symbols-outlined text-4xl text-red-400">emergency</span>
+                        <h3 class="font-bold">Emergency</h3>
+                        <p class="text-xs text-gray-500">24/7 Support</p>
+                    </div>
+                    <div class="bg-input-dark p-6 rounded-2xl border border-border-dark flex flex-col items-center text-center gap-3">
+                        <span class="material-symbols-outlined text-4xl text-yellow-400">biotech</span>
+                        <h3 class="font-bold">Lab Tests</h3>
+                        <p class="text-xs text-gray-500">Advanced Labs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <dialog id="authModal" class="bg-transparent backdrop:bg-black/80 p-0 rounded-2xl shadow-2xl w-full max-w-md">
+        <div class="bg-card-dark border border-border-dark p-6 rounded-2xl relative shadow-2xl">
+            <button onclick="document.getElementById('authModal').close()" class="absolute top-4 right-4 text-gray-400 hover:text-white material-symbols-outlined">close</button>
+            <h2 id="modal-title" class="text-2xl font-bold text-white mb-6">Login</h2>
+            <div class="flex flex-col gap-4">
+                <input type="text" id="auth-username" placeholder="Username or Email" class="w-full bg-input-dark border border-border-dark rounded-lg p-3 text-white focus:border-primary outline-none">
+                <div id="register-fields" class="flex flex-col gap-4 hidden">
+                    <input type="email" id="auth-email" placeholder="Email Address" class="w-full bg-input-dark border border-border-dark rounded-lg p-3 text-white focus:border-primary outline-none">
+                    <input type="tel" id="auth-phone" placeholder="Phone Number" class="w-full bg-input-dark border border-border-dark rounded-lg p-3 text-white focus:border-primary outline-none">
+                </div>
+                <input type="password" id="auth-password" placeholder="Password" class="w-full bg-input-dark border border-border-dark rounded-lg p-3 text-white focus:border-primary outline-none">
+                <button onclick="handleAuth()" class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-3 rounded-lg transition-all shadow-lg shadow-blue-500/20">Submit</button>
+                <p class="text-center text-gray-400 text-sm cursor-pointer hover:text-primary mt-2" onclick="toggleAuthMode()">
+                    <span id="toggle-text">Need an account? Register</span>
+                </p>
+                <p id="auth-msg" class="text-center text-red-500 text-sm mt-2 font-medium"></p>
+            </div>
+        </div>
+    </dialog>
+
+    <footer class="border-t border-border-dark py-8 text-center text-gray-500 text-sm bg-card-dark mt-auto">
+        <p>© 2025 Government Hospital. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
